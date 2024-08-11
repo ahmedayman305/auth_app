@@ -5,8 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "nodemon index.js",
-        "start": "cross-env NODE_ENV=production node index.js",
-        "build": "npm install && npm run build --prefix ../frontend"
+        "start": "cross-env NODE_ENV=production node index.js"
     },
     "dependencies": {
         "bcrypt": "^5.1.1",
