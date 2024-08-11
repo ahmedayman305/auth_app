@@ -5,39 +5,39 @@ import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.router.js";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from "url";
 
-// init app
+// Initialize app
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 
-// middlewares
+// Middlewares
 app.use(express.json());
 app.use(cookieParser());
-
-// Alternatively, you can configure it for specific origins
 app.use(
     cors({
-        origin: "http://localhost:5173", // Allow only your frontend's origin
+        origin: process.env.CLIENT_URL, // Allow only your frontend's origin
         methods: "GET,POST", // Allow specific HTTP methods
         credentials: true, // Allow cookies and other credentials to be included
     })
 );
 
-// routes
+// Routes
 app.use("/api/auth", authRouter);
 
-const __dirname = path.resolve();
-
+// Serve static files in production
 if (process.env.NODE_ENV === "production") {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-    app.use("*", (req, res) => {
+    app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
     });
 }
 
-// error handler
+// Error handler
 app.use((err, req, res, next) => {
     const code = err.code || 500;
     const msg = err.message || "INTERNAL SERVER ERROR";
@@ -49,8 +49,8 @@ app.use((err, req, res, next) => {
     });
 });
 
-// running server
+// Running server
 app.listen(port, () => {
     ConnectDB();
-    console.log(`app work in ${port}`);
+    console.log(`Server running on port ${port}`);
 });

@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "backend/index.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "frontend/dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/backend/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/frontend/dist/$1"
+        }
+    ],
+    "env": {
+        "MONGO_URL": "mongodb+srv://aakamel20:zxc123@c1.zlls3.mongodb.net/auth-app?retryWrites=true&w=majority&appName=c1",
+        "PORT": 3001,
+        "JWT_SECRET": "+O49o2tcidbs2Mpk/cGzTP4LhfARE8F4ou226MWKOUY10L6TES35R06HQLkGyckCVIEfGsSua3WC/qHHZ+zrmg==",
+        "EMAIL": "cinematic.677@gmail.com",
+        "PASS_KEY": "ipeq mrbq waje lirj",
+        "CLIENT_URL": "http://localhost:5173"
+    }
+}
