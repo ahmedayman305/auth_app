@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-export const API_URL = import.meta.env.CLIENT_URL;
+export const API_URL = import.meta.env.VITE_CLIENT_URL;
 
 axios.defaults.withCredentials = true;
 
@@ -23,6 +23,7 @@ export const useAuthStore = create((set) => ({
 
     signup: async (email, password, name) => {
         set({ isLoading: true, error: null });
+        console.log(API_URL);
         try {
             const response = await axios.post(`${API_URL}/sign-up`, {
                 email,
