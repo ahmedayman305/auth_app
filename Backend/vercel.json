@@ -10,8 +10,9 @@
             "src": "/(.*)",
             "dest": "/index.js",
             "methods": ["GET", "POST"],
-            "hearders": {
-                "Access-Control-Allow-Origin": "*"
+            "headers": {
+                "Access-Control-Allow-Origin": "https://auth-app-awka.vercel.app",
+                "Access-Control-Allow-Credentials": "true"
             }
         }
     ]
