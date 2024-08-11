@@ -29,6 +29,6 @@
         "JWT_SECRET": "+O49o2tcidbs2Mpk/cGzTP4LhfARE8F4ou226MWKOUY10L6TES35R06HQLkGyckCVIEfGsSua3WC/qHHZ+zrmg==",
         "EMAIL": "cinematic.677@gmail.com",
         "PASS_KEY": "ipeq mrbq waje lirj",
-        "CLIENT_URL": "http://localhost:5173"
+        "CLIENT_URL": "https://auth-app-t2w2.vercel.app"
     }
 }
