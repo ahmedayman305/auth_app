@@ -22,6 +22,9 @@ app.use(
 );
 
 // Routes
+app.get("/", (req, res) => {
+    res.send("API WORKING");
+});
 app.use("/api/auth", authRouter);
 
 // Error handler
