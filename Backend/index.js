@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://auth-app-awka.vercel.app", // Allow only your frontend's origin
+        origin: "*", // Allow only your frontend's origin
         methods: "GET,POST", // Allow specific HTTP methods
         credentials: true, // Allow cookies and other credentials to be included
     })
