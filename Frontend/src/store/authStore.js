@@ -22,6 +22,7 @@ export const useAuthStore = create((set) => ({
     },
 
     signup: async (email, password, name) => {
+        console.log(API_URL);
         set({ isLoading: true, error: null });
         console.log(API_URL);
         try {
