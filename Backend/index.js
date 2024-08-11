@@ -13,11 +13,13 @@ const port = process.env.PORT || 3001;
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
-cors({
-    origin: "https://auth-app-awka.vercel.app", // Replace with your frontend's origin
-    methods: "GET,POST",
-    credentials: true, // Allow cookies and other credentials to be included
-});
+app.use(
+    cors({
+        origin: "https://auth-app-awka.vercel.app", // Replace with your frontend's origin
+        methods: "GET,POST",
+        credentials: true, // Allow cookies and other credentials to be included
+    })
+);
 
 // Routes
 app.get("/", (req, res) => {
