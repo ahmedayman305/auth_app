@@ -8,7 +8,7 @@ import {
 import Dashboard from "./page/Dashboard";
 import SignIn from "./page/SignIn";
 import SignUp from "./page/SignUp";
-import VerifyEmail from "./page/verifyEmail";
+import VerifyEmail from "./page/VerifyEmail.jsx";
 import ResetPassword from "./page/ResetPassword";
 // import ui componet
 import FloatingShape from "./components/FloatingShape";
