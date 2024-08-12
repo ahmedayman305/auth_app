@@ -12,13 +12,15 @@ const handleRequest = async (url, method, data) => {
             method: method,
             data: data,
             withCredentials: true,
+            headers: {
+                "Content-Type": "application/json", // Set Content-Type header
+            },
         });
         return response.data;
     } catch (error) {
         throw error.response?.data?.message || "An error occurred";
     }
 };
-
 export const useAuthStore = create((set) => ({
     user: {
         email: null,
