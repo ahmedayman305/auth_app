@@ -33,7 +33,6 @@ app.use(
     cors({
         origin: "https://auth-app-awka.vercel.app", // Allow all origins
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
-        credentials: true,
     })
 );
 
